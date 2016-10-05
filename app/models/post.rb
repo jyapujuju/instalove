@@ -1,3 +1,6 @@
 class Post < ActiveRecord::Base
-  mount_uploader :photo, PhotoUploader 
+  validates :description, :user_id, presence: true
+  has_many :comments, dependent: :destroy
+  mount_uploader :photo, PhotoUploader
+  belongs_to :user
 end
