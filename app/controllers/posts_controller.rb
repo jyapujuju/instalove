@@ -11,6 +11,9 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     redirect_to root_path
+  end
 
+  def new
+    @post = Post.new
   end
 end

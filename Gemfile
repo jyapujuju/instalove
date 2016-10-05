@@ -7,6 +7,8 @@ gem 'rails', '4.2.6'
 gem 'sqlite3'
 # for authentication
 gem 'devise'
+#simple form
+gem 'simple_form'
 #carrierwave
 gem 'carrierwave'
 # Use SCSS for stylesheets
