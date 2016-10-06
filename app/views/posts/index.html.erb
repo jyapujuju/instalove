@@ -5,6 +5,11 @@
   <%= post.description %>
   <%= link_to 'view post', post_path(post.id) %>
   <% if post.user == current_user %>
+    <%= simple_form_for Comment.new, url: post_comments_path(post), metho: :post do |f| %>
+      <%= f.input :text, label: 'Comment', placeholder: 'Add a comment...' %>
+      <!-- <%= f.submit 'Post', class: 'btn btn-danger btn-block' %> -->
+      <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+    <% end %>
     <%= link_to 'Edit post', edit_post_path(post.id) %>
     <%= link_to 'Delete post', post_path(post.id), method: :delete %>
   <% end %>
