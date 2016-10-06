@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   #     member do
   #       get 'short'
   #       post 'toggle'
-  #     end
+p  #     end
   #
   #     collection do
   #       get 'sold'

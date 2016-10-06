@@ -1,4 +1,4 @@
-class CreateComments < ActiveRecord::Migration
+riclass CreateComments < ActiveRecord::Migration
   def change
     create_table :comments do |t|
       t.integer :post_id
