@@ -17,6 +17,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+      Comment.find(params[:id]).destroy
+      redirect_to root_path
+  end
+
   def comments_params
     params.require(:comment).permit(:text, :post_id).merge(user_id: current_user.id)
   end

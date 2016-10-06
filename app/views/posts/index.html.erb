@@ -8,6 +8,7 @@
   <% post.comments.each do |comment| %>
     <%= comment.text %>
     <%= comment.user.name %>
+    <%= link_to 'Delete Comment', post_comment_path(post_id: post.id, id: comment.id), method: :delete %>
   <% end %>
   <% if post.user == current_user %>
     <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post do |f| %>
