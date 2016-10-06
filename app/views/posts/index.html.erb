@@ -4,8 +4,14 @@
   <%= image_tag post.photo %>
   <%= post.description %>
   <%= link_to 'view post', post_path(post.id) %>
+
+  <% post.comments.each do |comment| %>
+    <%= comment.text %>
+    <%= comment.user.name %>
+  <% end %>
   <% if post.user == current_user %>
-    <%= simple_form_for Comment.new, url: post_comments_path(post), metho: :post do |f| %>
+    <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post do |f| %>
+
       <%= f.input :text, label: 'Comment', placeholder: 'Add a comment...' %>
       <!-- <%= f.submit 'Post', class: 'btn btn-danger btn-block' %> -->
       <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>

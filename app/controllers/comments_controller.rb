@@ -1,8 +1,14 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!,  only: :create
+
+  # def index
+  #   @post = Post.find(params[:post_id])
+  #   @comments = Post.find(params[:id])
+  # end
+
   def create
     @post = Post.find(params[:post_id])
-    @comments = current_user.comments.create(comments_params)
+    @comments = @post.comments.create(comments_params)
     if @comments.valid?
       redirect_to root_path
     else
@@ -12,7 +18,7 @@ class CommentsController < ApplicationController
   end
 
   def comments_params
-    params.require(:comment).permit(:text, :post_id)
+    params.require(:comment).permit(:text, :post_id).merge(user_id: current_user.id)
   end
 
 end
