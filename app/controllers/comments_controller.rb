@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!,  only: :create
-
+  before_action :is_owner?, only: :destroy
   # def index
   #   @post = Post.find(params[:post_id])
   #   @comments = Post.find(params[:id])
@@ -25,5 +25,13 @@ class CommentsController < ApplicationController
   def comments_params
     params.require(:comment).permit(:text, :post_id).merge(user_id: current_user.id)
   end
+
+  def is_owner?
+  @comment = Comment.find(params[:id])
+    if @comment.user != current_user
+      redirect_to root_path
+    end
+  end
+
 
 end
