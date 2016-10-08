@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+
 </head>
 <body>
   <div class="wrap">
@@ -13,6 +16,6 @@
       <%= yield %>
     </div>
   </div>
-  <%= render 'footer' %>
+  <div class="row"><div class="col-xs-12"><%= render 'layouts/footer' %></div></div>
 </body>
 </html>

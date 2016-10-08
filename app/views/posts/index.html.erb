@@ -1,23 +1,30 @@
+<div class="row">
 <% @posts.each do |post| %>
-  <%= image_tag post.user.photo %>
-  <%= post.user.name %>
-  <%= image_tag post.photo %>
-  <%= post.description %>
-  <%= link_to 'view post', post_path(post.id) %>
-
+<div class="col-xs-12">
+  <div class="col-xs-2"><%= image_tag post.user.photo %></div>
+  <div class="col-xs-10"><%= post.user.name %><br/><%= post.description %></div>
+  <hr>
+  <div><%= image_tag post.photo %></div>
+  <div></div>
+  <%= link_to 'view post', post_path(post.id) %><% if user_signed_in? %>
+    <%= link_to 'Edit post', edit_post_path(post.id) %>
+    <%= link_to 'Delete post', post_path(post.id), method: :delete %>
+  <% end %><hr><br>
   <% post.comments.each do |comment| %>
-    <%= comment.text %>
+    <%= comment.text %>&nbsp;&nbsp;><)))o>&nbsp;&nbsp;
     <%= comment.user.name %>
     <% if comment.user == current_user %>
       <%= link_to 'Delete Comment', post_comment_path(post_id: post.id, id: comment.id), method: :delete %>
     <% end %>
+    <hr>
+    <br>
   <% end %>
   <% if user_signed_in? %>
     <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post do |f| %>
-      <%= f.input :text, label: 'Comment', placeholder: 'Add a comment...' %>
-      <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+    <div class="col-xs-10">      <%= f.input :text, label:false , placeholder: 'Add a comment...' %></div>
+      <div class="col-xs-2"><%= f.submit 'Post', class: 'btn btn-primary btn-block' %></div>
     <% end %>
-    <%= link_to 'Edit post', edit_post_path(post.id) %>
-    <%= link_to 'Delete post', post_path(post.id), method: :delete %>
   <% end %>
+</div>
 <% end %>
+</div>
