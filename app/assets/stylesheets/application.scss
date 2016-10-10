@@ -16,22 +16,55 @@
  @import "bootstrap";
   html,body {
   height: 100%;
+  background-color:    #EFFBF2;
+  position: relative;
+}
+.flushing{min-height: 80%;}
+.box{
+  background-color: white;
+  margin-top: 50px;
 }
 nav {
+    background-color: white;
     -webkit-box-shadow: 0 8px 6px -6px #999;
     -moz-box-shadow: 0 8px 6px -6px #999;
     box-shadow: 0 8px 6px -6px #999;
-
     /* the rest of your styling */
 }
+.user_image{
+  height: 40px;
+  width:40px;
+  padding-left: 10px;
+  padding-top: 10px;
+
+}
+hr.introhr  {
+   margin-top: 1px !important;
+   margin-bottom: 1px !important;
+ }
+.user{
+      font-family: 'Kaushan Script', cursive;
+      font-size: 20px;
+}
+.center-image{
+  display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+.text{
+    font-family: 'Handlee', cursive;
+}
 .wrap{
-  height: 85%;
-  //height: auto;
+  padding-top: 30px;
+  max-width: 730px;
+  margin-left: auto;
+  margin-right: auto;
+// min-height: 100%;
+// height: auto;
   //padding: 0 0 120px;
 }
 .footer {
-//  height: 120px;
-  background-color: #f5f5f5;
+    background-color: #f5f5f5;
 }
  .navbar-brand{
     font-family: 'Kaushan Script', cursive;
