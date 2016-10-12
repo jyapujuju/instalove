@@ -12,14 +12,13 @@
       <a class="navbar-brand" href="/">Instalove</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li class="active"><%= link_to 'peace', root_path %></li>
       <% if user_signed_in? %>
-        <li><%= link_to 'New Post',new_post_path %></li>
-        <li><%= link_to 'Edit',edit_user_registration_path %></li>
-        <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to '<i class="fa fa-plus" aria-hidden="true"></i>'.html_safe,new_post_path,:title=>"New Post" %></li>
+        <li><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe,edit_user_registration_path,:title=>"Edit user"  %></li>
+        <li><%= link_to '<i class="fa fa-sign-out" aria-hidden="true"></i>'.html_safe, destroy_user_session_path, method: :delete,:title=>"Logout" %></li>
       <% else %>
-        <li><%= link_to 'Sign UP', new_user_registration_path %></li>
-        <li><%= link_to 'Log In', new_user_session_path %></li>
+        <li><%= link_to '<i class="fa fa-user-plus" aria-hidden="true"></i>'.html_safe, new_user_registration_path, :title=>"Register" %></li>
+        <li><%= link_to '<i class="fa fa-sign-in" aria-hidden="true"></i>'.html_safe, new_user_session_path, :title=>"Login" %></li>
       <% end %>
     </ul>
   </div>

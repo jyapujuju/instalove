@@ -24,12 +24,59 @@
   background-color: white;
   margin-top: 50px;
 }
+.like{
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+ul.like li{
+  display: inline;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  font-size: 20px;
+}
+.comment-text{
+  color: #e91e63;
+  font-family: 'handlee', cursive;
+
+}
+.comment-user{
+  color: #2196f3;
+  // font-family: 'handlee', cursive;
+  font-family: 'Kaushan Script', cursive;
+
+}
+.comment{
+  margin: 0 20px 0 20px;
+}
 nav {
     background-color: white;
     -webkit-box-shadow: 0 8px 6px -6px #999;
     -moz-box-shadow: 0 8px 6px -6px #999;
     box-shadow: 0 8px 6px -6px #999;
     /* the rest of your styling */
+}
+.fa{
+  font-size: 20px !important;
+}
+.fa-user-plus{
+  color: #ff9800;
+}
+.fa-sign-out{
+  color: #9E9E9E;
+}
+.fa-plus{
+  color:#f44336;
+}
+.fa-sign-in{
+  color: #8BC34A;
+}
+.fa-eye{
+  color: #1ABC9C;
+}
+.fa-trash-o{
+  color: black;
 }
 .user_image{
   height: 40px;
@@ -41,11 +88,23 @@ nav {
 hr.introhr  {
    margin-top: 1px !important;
    margin-bottom: 1px !important;
+   border-width: 5px;
+   border-color: pink;
+  //  margin-left: 10%;
+  //  margin-right: 10%;
+ }
+ .middle-line{
+   border-width: 1px;
+margin-left: 10%;
+margin-right: 10%;
+border-color: grey;
+margin-top: 5px !important;
  }
 .user{
       font-family: 'Kaushan Script', cursive;
       font-size: 20px;
 }
+
 .center-image{
   display: block;
    margin-left: auto;
