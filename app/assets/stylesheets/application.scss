@@ -50,12 +50,21 @@ ul.like li{
 .comment{
   margin: 0 20px 0 20px;
 }
+.commentbox{
+  padding-top: 10px;
+}
 nav {
     background-color: white;
     -webkit-box-shadow: 0 8px 6px -6px #999;
     -moz-box-shadow: 0 8px 6px -6px #999;
     box-shadow: 0 8px 6px -6px #999;
     /* the rest of your styling */
+}
+.commentjs{
+  float: right;
+  padding-right: 1.5%;
+  color: #E0E0E0;
+
 }
 .fa{
   font-size: 20px !important;
@@ -94,11 +103,12 @@ hr.introhr  {
   //  margin-right: 10%;
  }
  .middle-line{
-   border-width: 1px;
-margin-left: 10%;
-margin-right: 10%;
-border-color: grey;
-margin-top: 5px !important;
+border-width: 1px;
+margin-left: 1%;
+margin-right: 1%;
+border-color: #F5F5F5;
+margin-top: 10px !important;
+margin-bottom: 10px !important;
  }
 .user{
       font-family: 'Kaushan Script', cursive;

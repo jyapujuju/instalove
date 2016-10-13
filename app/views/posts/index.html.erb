@@ -29,41 +29,43 @@
   </div>
   <div class="row comment">
     <% post.comments.each do |comment| %>
-    <% $i=0 %>
-    <div class="col-xs-12 comment-count" id="comment<%= $i %>">
+    <div class="col-xs-12 comment-count" id="comment">
         <hr class="middle-line">
         <span class="comment-user"><%= comment.user.name %></span>&nbsp;&nbsp; ~ &nbsp;&nbsp;
         <span class="comment-text"><%= comment.text %></span>
         <% if comment.user == current_user %>
           <!-- <%= link_to 'Delete Comment', post_comment_path(post_id: post.id, id: comment.id), method: :delete %> -->
-          <%= link_to '<i class="fa fa-minus-circle" aria-hidden="true"></i>'.html_safe, post_comment_path(post_id: post.id, id: comment.id),:id=> "commentjs#{$i}"  , :title=>"Delete comment", method: :delete  %>
+          <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, post_comment_path(post_id: post.id, id: comment.id),:class=> "commentjs"  , :title=>"Delete comment", method: :delete  %>
         <% end %>
     </div>
-
-
-    <% $i = $i +  1 %>
     <% end %>
-    <script>
-      for (var i=0;i<comment-count.length;i++){
-        $("#comment").mouseover(function() { $("#commentjs").css('visibility','visible'); });
-        // $("#hello").mouseover(function() { $("#hello").css('visibility','visible'); });
-        $("#comment").mouseout(function() { $("#commentjs").css('visibility','hidden'); });
-      }
-    </script>
+
   </div>
+  <script>
+  $(".comment-count").on("mouseover", function() {
+      $(this).find("a").css('visibility','visible');
+    });
+
+    $(".comment-count").on("mouseleave", function() {
+      $(this).find("a").css('visibility','hidden');
+    });
+  </script>
   <!-- <script>
   $("#comment").mouseover(function() { $("#commentjs").css('visibility','visible'); });
   // $("#hello").mouseover(function() { $("#hello").css('visibility','visible'); });
   $("#comment").mouseout(function() { $("#commentjs").css('visibility','hidden'); });
   </script> -->
   <div class="row">
-    <div class="col-xs-12">
-  <% if user_signed_in? %>
-    <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post do |f| %>
-    <div class="col-xs-10">      <%= f.input :text, label:false , placeholder: 'Spread love...' %></div>
-      <div class="col-xs-2"><%= f.submit 'Post', class: 'btn btn-primary btn-block' %></div>
-    <% end %>
-  <% end %>
+    <div class="col-xs-12 commentbox">
+      <% if user_signed_in? %>
+        <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post do |f| %>
+        <div class="col-xs-10">
+          <%= f.input :text, label:false , placeholder: 'Spread love...' %></div>
+          <div class="col-xs-2">
+            <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+          </div>
+        <% end %>
+      <% end %>
 </div>
 </div>
 </div>
