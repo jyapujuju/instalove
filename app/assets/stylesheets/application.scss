@@ -1,4 +1,4 @@
-/*
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -87,6 +87,24 @@ nav {
 .fa-trash-o{
   color: black;
 }
+.fa-facebook-official{
+  color:#82B1FF;
+  // background-color: white;
+}
+.fa-twitter-square{
+  color:#82B1FF;
+}
+.fa-rss-square{
+  color:#FFE0B2;
+
+}
+.fa-info{
+  color: #69F0AE;
+
+}
+.fa-envelope-o{
+  color: #ff5722;
+}
 .user_image{
   height: 40px;
   width:40px;
@@ -110,6 +128,14 @@ border-color: #F5F5F5;
 margin-top: 10px !important;
 margin-bottom: 10px !important;
  }
+ .field{
+   padding-top:20px;
+ }
+ .login-logout{
+  //  text-align: center;
+   font-family: 'handlee', cursive;
+   display: inline !important;
+ }
 .user{
       font-family: 'Kaushan Script', cursive;
       font-size: 20px;
@@ -132,10 +158,36 @@ margin-bottom: 10px !important;
 // height: auto;
   //padding: 0 0 120px;
 }
-.footer {
-    background-color: #f5f5f5;
-}
+
  .navbar-brand{
     font-family: 'Kaushan Script', cursive;
     font-size: 30px;
  }
+.footer-design{
+padding-top:20px;
+background-color: #795548;
+color: #B9F6CA;
+// margin-top: 50px;
+text-align: center;
+text-transform: capitalize;
+font-family: 'Handlee', cursive;
+}
+.grass {
+  background-image: url("grass.png");
+  background-repeat: repeat-x;
+  // padding-bottom: 24px;
+}
+.modal-content{
+  background-color: #1B5E20 ;
+  color: #f5f5f5;
+  text-shadow: #EEEE00 0 0 10px;
+
+}
+ul.footer-link li{
+display: inline;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 20px;
+font-size: 20px;
+color:white;
+}

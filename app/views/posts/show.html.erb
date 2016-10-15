@@ -1,8 +1,59 @@
-<%= image_tag @post.user.photo %>
-<%= @post.user.name %>
-<%= image_tag @post.photo %>
-<%= @post.description %>
-<%  if @post.user == current_user %>
-  <%= link_to 'edit post', edit_post_path(@post.id) %>
-  <%= link_to 'delete post', post_path(@post.id), method: :delete %>
-<% end %>
+<div class="box">
+<div class="row intro">
+  <div class="col-xs-1"><%= image_tag @post.user.photo, :class => 'user_image'%></div>
+  <div class="col-xs-11"><span class="user"><%= @post.user.name %></span><br><span class="text"><%= @post.description%></span></div>
+</div>
+<hr class="introhr">
+<div class="row">
+  <div class="col-xs-12">
+    <div><%= image_tag @post.photo, :class=>"center-image", :width=>"100%" %></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+  <ul class="like">
+  <% if user_signed_in? %>
+  <% if @post.user == current_user %>
+    <li><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_post_path(@post.id), :title=>"Edit post" %></li>
+    <li><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, post_path(@post.id), :title=>"Delete post", method: :delete %></li>
+    <% end %>
+  <% end %>
+  </ul>
+  </div>
+  </div>
+  <div class="row comment">
+    <% @post.comments.each do |comment| %>
+    <div class="col-xs-12 comment-count" id="comment">
+        <hr class="middle-line">
+        <span class="comment-user"><%= comment.user.name %></span>&nbsp;&nbsp; ~ &nbsp;&nbsp;
+        <span class="comment-text"><%= comment.text %></span>
+        <% if comment.user == current_user %>
+          <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, post_comment_path(post_id: @post.id, id: comment.id),:class=> "commentjs"  , :title=>"Delete comment", method: :delete  %>
+        <% end %>
+    </div>
+    <% end %>
+
+  </div>
+  <script>
+  $(".comment-count").on("mouseover", function() {
+      $(this).find("a").css('visibility','visible');
+    });
+
+    $(".comment-count").on("mouseleave", function() {
+      $(this).find("a").css('visibility','hidden');
+    });
+  </script>
+  <div class="row">
+    <div class="col-xs-12 commentbox">
+      <% if user_signed_in? %>
+        <%= simple_form_for Comment.new, url: post_comments_path(@post), method: :post do |f| %>
+        <div class="col-xs-10">
+          <%= f.input :text, label:false , placeholder: 'Spread love...' %></div>
+          <div class="col-xs-2">
+            <%= f.submit '@Post', class: 'btn btn-primary btn-block' %>
+          </div>
+        <% end %>
+      <% end %>
+</div>
+</div>
+</div>
