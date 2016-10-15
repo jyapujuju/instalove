@@ -1,7 +1,9 @@
 <div class="box">
 <div class="row intro">
   <div class="col-xs-1"><%= image_tag @post.user.photo, :class => 'user_image'%></div>
-  <div class="col-xs-11"><span class="user"><%= @post.user.name %></span><br><span class="text"><%= @post.description%></span></div>
+  <div class="col-xs-9"><span class="user"><%= @post.user.name %></span><br><span class="text"><%= @post.description%></span></div>
+  <div class="col-xs-2 timestamp"><span class=""><%= distance_of_time_in_words(DateTime.now, @post.created_at) %></span></div>
+
 </div>
 <hr class="introhr">
 <div class="row">
