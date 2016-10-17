@@ -38,6 +38,7 @@ class PostsController < ApplicationController
       render :new, status: :unprocessable_entery
     end
   end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
