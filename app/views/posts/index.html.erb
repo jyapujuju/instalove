@@ -5,7 +5,7 @@
   <div class="col-xs-1"><%= image_tag post.user.photo, :class => 'user_image'%></div>
 
   <div class="col-xs-9"><span class="user"><%= post.user.name %></span><br><span class="text"><%= post.description%></span></div>
-  <div class="col-xs-2 timestamp"><span class=""><%= distance_of_time_in_words(DateTime.now, post.created_at) %></span></div>  
+  <div class="col-xs-2 timestamp"><span class=""><%= distance_of_time_in_words(DateTime.now, post.created_at) %></span></div>
 
 </div>
 <hr class="introhr">
@@ -17,6 +17,22 @@
 <div class="row">
   <div class="col-xs-12">
   <!-- <%= link_to 'view post', post_path(post.id) %> -->
+  <div class="vote">
+    <% if user_signed_in? %>
+      <span class="post_like">
+        <% if current_user.voted_up_on? post %>
+            <%= link_to '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, post_downvotes_path(post.id),method: :post %>
+          <% else %>
+            <%= link_to '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe, post_upvotes_path(post.id),method: :post %>
+          <% end %>
+          <%= pluralize post.get_likes.size, "like" %>
+      </span>
+    <% else %>
+      <span class="post_like">
+          <i class="fa fa-heart-o" aria-hidden="true"></i>  <%= pluralize post.get_likes.size, "like" %>
+      </span>
+    <% end %>
+  </div>
   <ul class="like">
   <li><%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, post_path(post.id), :title=>"Show post" %></li>
   <% if user_signed_in? %>
@@ -31,6 +47,7 @@
   </ul>
   </div>
   </div>
+
   <div class="row comment">
     <% post.comments.each do |comment| %>
     <div class="col-xs-12 comment-count" id="comment">

@@ -1,8 +1,8 @@
 class DownvotesController < ApplicationController
-before_action authenticate_user!
+before_action :authenticate_user!
   def create
     @post = Post.find(params[:post_id])
-    @post.downvotes_from current_user
+    @post.downvote_from current_user
     redirect_to posts_path
   end
 end

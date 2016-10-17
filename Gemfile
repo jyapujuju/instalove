@@ -18,6 +18,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'acts_as_votable', '~> 0.10.0'
 
 # Use Uglifier as compressor for JavaScript assets
+
+gem 'font-awesome-sass', '~> 4.6.2'
+
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'

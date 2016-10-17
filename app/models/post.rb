@@ -3,6 +3,8 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
   mount_uploader :photo, PhotoUploader
+
   belongs_to :user
+
   acts_as_votable
 end
